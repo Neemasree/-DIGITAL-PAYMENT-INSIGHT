@@ -197,6 +197,7 @@ navy = "17365D"
 summary_sheet["A1"] = "DIGITAL PAYMENT INSIGHT — SYNTHETIC DATA"
 summary_sheet["A1"].font = Font(bold=True, size=16, color="FFFFFF")
 summary_sheet["A1"].fill = PatternFill("solid", fgColor=navy)
+summary_sheet.merge_cells("A1:D1")
 workbook_rows = [
     ("Metric","Value"), ("Raw transactions",raw_rows), ("Clean transactions",len(clean),
     ), ("Duplicate records removed",raw_rows-len(clean)), ("Missing merchant categories filled",len(missing_indices)),
@@ -206,7 +207,6 @@ workbook_rows = [
     ("New-device synthetic review rate",device_new_rate), ("Known-device synthetic review rate",device_known_rate)
 ]
 for row in workbook_rows: summary_sheet.append(row)
-summary_sheet.merge_cells("A1:D1")
 for cell in summary_sheet[2]:
     cell.font = Font(bold=True, color="FFFFFF")
     cell.fill = PatternFill("solid", fgColor=navy)
