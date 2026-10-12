@@ -18,7 +18,7 @@ pip install -r requirements.txt
 python src/build_project.py
 ```
 
-Run from the repository root. The script creates the complete local project outputs: five raw CSV tables, cleaned/enriched transactions and summaries, six charts, JSON metrics, a saved model, an Excel workbook, and an eight-slide PowerPoint pitch.
+Run from the repository root. The script creates the complete local project outputs: five raw CSV tables, cleaned/enriched transactions and summaries, six charts, JSON metrics, a saved model, an Excel workbook, and an eight-slide PowerPoint pitch. The generated CSVs, model, workbook, charts and PowerPoint are not committed in this source-only repository yet; generate them locally with this command.
 
 ## Included source files
 
