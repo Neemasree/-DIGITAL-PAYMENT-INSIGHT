@@ -1,0 +1,3 @@
+{
+  "note": "Run python src/build_project.py to generate metrics from the current synthetic run. Metrics relate only to simulated review-priority labels."
+}
