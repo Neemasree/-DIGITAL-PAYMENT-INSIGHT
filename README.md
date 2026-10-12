@@ -2,49 +2,58 @@
 
 **DS Sprint Assessment 2 | U23AD491 Data Science**
 
-An end-to-end educational data-science project to understand digital-payment transaction behaviour and identify patterns that may deserve operational review, following the provided Use Case 13 assessment brief.
+This repository contains an end-to-end educational data-science workflow for the assessment case *Digital Payment Insight*: synthetic data generation, data quality repair, EDA, feature engineering, a Random Forest baseline, Excel analysis, and a business pitch.
 
-> **Synthetic-data notice:** All records are artificially generated. `synthetic_review_label` is a simulated review-priority proxy, not confirmed fraud or a real-world outcome. Model metrics do not represent production fraud-detection performance.
+> **Synthetic-data notice:** All records are artificially generated. `synthetic_review_label` is a simulated review-priority proxy, not confirmed fraud. Model metrics do not represent production fraud-detection performance.
 
-## What the project produces
-
-Running `python src/build_project.py` generates the complete working project artifacts:
-- Five source CSVs in `data/raw/`: transactions, customers, devices, merchants and alerts.
-- Cleaned joined transactions and summary CSVs in `data/processed/`.
-- A trained Random Forest pipeline saved under `models/`.
-- Metrics and EDA charts under `reports/`.
-- An Excel workbook with summary analysis, cleaned data, analysis tabs and charts under `excel/`.
-- An eight-slide business pitch under `presentation/`.
-
-## Setup
+## Quick start
 
 Python 3.10+ recommended.
 
 ```bash
 python -m venv .venv
-# Windows PowerShell:
-.venv\Scripts\Activate.ps1
-# macOS/Linux:
-source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+# macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 python src/build_project.py
 ```
 
-The generator uses a fixed random seed for repeatability. Run from the repository root. It creates synthetic data and re-generates reports, the model, workbook and presentation.
+Run from the repository root. The script creates the complete local project outputs: five raw CSV tables, cleaned/enriched transactions and summaries, six charts, JSON metrics, a saved model, an Excel workbook, and an eight-slide PowerPoint pitch.
+
+## Included source files
+
+- `src/build_project.py` — reproducible end-to-end pipeline.
+- `requirements.txt` — Python dependencies.
+- `notebooks/digital_payment_eda.ipynb` — EDA walkthrough (run after generating data).
+- `docs_assessment_sheet.md` — assessment-sheet answer draft.
+- `reports/model_metrics.json`, `reports/key_findings.json` — current run's measured metrics/findings.
+- `data/`, `reports/`, `excel/`, `presentation/`, `models/` — generated output folders after running the script.
 
 ## Assessment workflow
 
-1. Generate synthetic source tables with intentional quality issues.
-2. Clean duplicate transaction IDs, normalize channels, fill missing merchant categories using merchant reference data, parse timestamps and join the data.
-3. Engineer time, amount, device and region features.
-4. Explore amount distribution, hourly volume, customer segment, device, merchant category and region patterns.
-5. Train and evaluate a Random Forest classifier with a stratified holdout split.
-6. Export a report-ready Excel workbook, charts and a short business pitch.
+1. Generate synthetic transactions, customers, devices, merchants and alerts with injected data-quality issues.
+2. Remove duplicate transaction IDs, standardize channel labels, impute missing categories from merchant reference data, parse timestamps and join reference tables.
+3. Engineer transaction hour, night-time flag, log amount, new-device and region-mismatch features.
+4. Explore amounts, hourly volume, segments, devices, merchant categories and regions.
+5. Train and evaluate a Random Forest using a stratified 80/20 holdout split.
+6. Export charts, an Excel workbook with analysis tables/charts and a short business pitch.
 
-## Assessment-sheet draft
+## Measured synthetic baseline
 
-See [docs_assessment_sheet.md](docs_assessment_sheet.md) for the concise answer organised by round.
+| Metric | Value |
+|---|---:|
+| Raw rows | 12,035 |
+| Clean rows | 12,000 |
+| Duplicates removed | 35 |
+| Missing merchant categories filled | 300 |
+| Accuracy | 0.7342 |
+| Precision | 0.3855 |
+| Recall | 0.3166 |
+| F1-score | 0.3476 |
+| ROC-AUC | 0.6169 |
 
-## Important limitations
+The model predicts a simulated review-priority label. The results are modest and must not be described as real fraud-detection performance. The Excel output contains summary tables and charts; if your assessor requires native Excel PivotTables, create/refresh those in desktop Excel.
 
-This is an educational prototype. Simulated review-priority labels do not prove fraud. Do not automatically block payments based on this model. Any operational use would require real, governed transaction records, confirmed review outcomes, leakage checks, threshold validation and human oversight.
+## Limitations and responsible use
+
+This is an educational prototype. Synthetic labels cannot establish fraud. Do not block payments automatically based on this model. Operational use requires properly governed real data, confirmed outcomes, leakage checks, false-positive evaluation and human oversight.
