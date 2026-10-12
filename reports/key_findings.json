@@ -1,3 +1,11 @@
 {
-  "note": "Run python src/build_project.py to generate findings from the current synthetic run."
+  "new_device_review_rate": 0.39642082429501085,
+  "known_device_review_rate": 0.19259551004332415,
+  "peak_volume_hour": 19,
+  "peak_volume_count": 1011,
+  "highest_review_rate_category": "Travel",
+  "highest_category_review_rate": 0.2536997885835095,
+  "highest_review_rate_region": "East",
+  "highest_region_review_rate": 0.23492957746478874,
+  "note": "Synthetic data and simulated review-priority labels only; not confirmed fraud."
 }
