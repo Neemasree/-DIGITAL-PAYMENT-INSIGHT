@@ -149,7 +149,7 @@ model.fit(X_train, y_train)
 pred = model.predict(X_test)
 score = model.predict_proba(X_test)[:,1]
 metrics = {
-    "dataset_rows_after_cleaning": int(len(clean),), "raw_transaction_rows": int(raw_rows),
+    "dataset_rows_after_cleaning": int(len(clean)), "raw_transaction_rows": int(raw_rows),
     "duplicate_rows_removed": int(raw_rows-len(clean)), "missing_merchant_categories_filled": int(len(missing_idx)),
     "test_rows": int(len(X_test)), "target_positive_rate": float(y.mean()),
     "accuracy": float(accuracy_score(y_test,pred)), "precision": float(precision_score(y_test,pred,zero_division=0)),
