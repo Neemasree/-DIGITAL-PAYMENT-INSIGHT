@@ -1,3 +1,16 @@
 {
-  "note": "Run python src/build_project.py to generate metrics from the current synthetic run. Metrics relate only to simulated review-priority labels."
+  "dataset_rows_after_cleaning": 12000,
+  "raw_transaction_rows": 12035,
+  "duplicate_rows_removed": 35,
+  "missing_merchant_categories_filled": 300,
+  "feature_count_before_encoding": 11,
+  "target_positive_rate": 0.22391666666666668,
+  "test_rows": 2400,
+  "accuracy": 0.7341666666666666,
+  "precision": 0.3854875283446712,
+  "recall": 0.3165735567970205,
+  "f1_score": 0.3476482617586912,
+  "roc_auc": 0.6168991164807968,
+  "confusion_matrix": [[1592, 271], [367, 170]],
+  "threshold_note": "Default classifier threshold 0.50; synthetic proxy labels only."
 }
