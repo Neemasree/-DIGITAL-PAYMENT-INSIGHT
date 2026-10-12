@@ -1,3 +1,3 @@
 # Data
 
-The CSVs in `raw/` are artificially generated for this educational assessment and intentionally include quality problems described in the supplied case brief. Files in `processed/` are outputs from the reproducible pipeline. These are not real customer or payment records.
+All data is artificial and generated for this educational assessment. The raw files intentionally include quality issues described in the supplied case brief. The processed files are outputs from the analysis pipeline. No real customer or payment records are included.
